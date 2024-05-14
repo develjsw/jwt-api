@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import configLocal from './config/local/config.local';
 import configDevelopment from './config/development/config.development';
 import configProduction from './config/production/config.production';
+import { AuthModule } from './auth/auth.module';
 
 let config;
 switch (process.env.NODE_ENV) {
@@ -25,7 +26,8 @@ switch (process.env.NODE_ENV) {
             isGlobal: true,
             cache: true,
             load: [config]
-        })
+        }),
+        AuthModule
     ],
     controllers: [AppController],
     providers: [AppService]
