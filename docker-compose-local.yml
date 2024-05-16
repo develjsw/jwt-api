@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  jwt-api:
+    image: jwt-api:latest
+    build:
+      context: .
+      dockerfile: ./dockerfile/Dockerfile-local
+    ports:
+      - "3004:8004"
+    environment:
+      - PORT=8004
+      - NODE_ENV=local
+    restart: always
+    networks:
+      - msa-api-network
+
+networks:
+  msa-api-network:
