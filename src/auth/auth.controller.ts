@@ -20,6 +20,9 @@ export class AuthController {
 
     @Get(':token')
     async detail(@Param('token') token: string) {
-        return await this.authService.jwtDecode(token);
+        const data = await this.authService.jwtDecode(token);
+        return {
+            data: data
+        };
     }
 }
