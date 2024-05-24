@@ -10,7 +10,7 @@ services:
       - "3004:8004"
     environment:
       - PORT=8004
-      - NODE_ENV=local
+      - NODE_ENV=development
     restart: always
     networks:
       - msa-api-network
