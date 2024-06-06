@@ -27,8 +27,7 @@ RUN chown -R node:node .
 USER node
 
 # npm 종속성 설치 && npm clear cache
-#RUN npm ci && npm cache clean --force
-RUN npm ci
+RUN npm ci && npm cache clean --force
 
 # 앱 빌드
 RUN npm run build
