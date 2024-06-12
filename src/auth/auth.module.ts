@@ -2,21 +2,21 @@ import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtModule } from '@nestjs/jwt';
-import configLocal from '../config/local/config.local';
-import configProduction from '../config/production/config.production';
-import configDevelopment from '../config/development/config.development';
+import localConfig from '../config/local/local.config';
+import developmentConfig from '../config/production/production.config';
+import productionConfig from '../config/development/development.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 let config;
 switch (process.env.NODE_ENV) {
     case 'production':
-        config = configProduction;
+        config = productionConfig;
         break;
     case 'development':
-        config = configDevelopment;
+        config = developmentConfig;
         break;
     default:
-        config = configLocal;
+        config = localConfig;
         break;
 }
 
