@@ -6,7 +6,7 @@ import localConfig from './config/local/local.config';
 import developmentConfig from './config/development/development.config';
 import productionConfig from './config/production/production.config';
 import { AuthModule } from './auth/auth.module';
-import { LoggerMiddleware } from './common/logger/logger.middleware';
+import { LoggerMiddleware } from './logger/logger.middleware';
 
 let config;
 switch (process.env.NODE_ENV) {
